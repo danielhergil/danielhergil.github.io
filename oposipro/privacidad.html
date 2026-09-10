@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad · OposiPro</title>
+<style>
+  :root { color-scheme: light dark; --fondo:#fbfaf8; --texto:#1c1b19; --suave:#5c5a55; --linea:#e2ded6; --acento:#1f6f4a; --caja:#f2efe9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fondo:#14150f; --texto:#eae7df; --suave:#a5a196; --linea:#2e3026; --acento:#7fc9a1; --caja:#1d1f18; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--fondo); color:var(--texto);
+    font: 17px/1.65 -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
+    -webkit-text-size-adjust:100%; }
+  main { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  h1 { font-size: 1.9rem; line-height:1.2; margin:0 0 .4rem; letter-spacing:-.02em; }
+  h2 { font-size: 1.2rem; margin: 2.4rem 0 .6rem; letter-spacing:-.01em; }
+  h3 { font-size: 1rem; margin: 1.4rem 0 .3rem; }
+  .meta { color: var(--suave); font-size:.9rem; margin: 0 0 2rem; }
+  a { color: var(--acento); }
+  ul { padding-left: 1.2rem; }
+  li { margin: .35rem 0; }
+  code { background: var(--caja); padding: .1em .35em; border-radius: 4px; font-size: .88em; }
+  .resumen { background: var(--caja); border-left: 3px solid var(--acento);
+    padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0 0; }
+  .resumen p { margin: .4rem 0; }
+  table { border-collapse: collapse; width:100%; font-size:.94rem; margin:.8rem 0; display:block; overflow-x:auto; }
+  th, td { text-align:left; padding:.55rem .7rem; border-bottom:1px solid var(--linea); vertical-align: top; }
+  th { color: var(--suave); font-weight:600; font-size:.85rem; text-transform:uppercase; letter-spacing:.04em; }
+  footer { margin-top:3.5rem; padding-top:1.2rem; border-top:1px solid var(--linea); color:var(--suave); font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Política de privacidad de OposiPro</h1>
+<p class="meta">Última actualización: 10 de septiembre de 2026</p>
+
+<div class="resumen">
+  <p><strong>En corto.</strong> OposiPro funciona entera sin cuenta y sin conexión. Si no entras
+  con Google, lo que estudias se queda en tu móvil.</p>
+  <p>Si entras con Google, guardamos tu progreso en tu espacio privado de la nube para que lo
+  tengas en otros dispositivos.</p>
+  <p><strong>Nunca vemos tu tarjeta.</strong> El cobro lo hacen Google Play o App Store; a nosotros
+  solo nos llega si tu suscripción está activa.</p>
+  <p>No vendemos tus datos a nadie, ni los usamos para publicidad.</p>
+</div>
+
+<h2>1. Quién es responsable de tus datos</h2>
+<p>El responsable del tratamiento es <strong>Daniel HG</strong>, desarrollador y titular de la
+aplicación OposiPro (<code>org.danihg.oposipro</code>).</p>
+<p>Para cualquier asunto relacionado con tus datos, incluida la baja o el borrado:
+<a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a>.</p>
+
+<h2>2. Qué pasa si usas la app sin cuenta</h2>
+<p>OposiPro no obliga a registrarse. Puedes instalarla y usarla sin dar ningún dato.</p>
+<ul>
+  <li>Tus tests, resultados, racha, fallos y ejercicios de ortografía y gramática se guardan
+      <strong>solo en la base de datos local de tu dispositivo</strong>. No salen de él.</li>
+  <li>La app descarga de nuestros servidores los <strong>parámetros de la convocatoria y los
+      límites del plan gratuito</strong> (Firebase Remote Config). Para eso envía un identificador
+      técnico de la instalación, no tu identidad.</li>
+  <li>La app envía <strong>estadísticas de uso anónimas</strong> (Firebase Analytics). Se explica en
+      el apartado 5.</li>
+  <li>Si desinstalas la app, ese progreso local se pierde y no hay copia en ninguna parte.</li>
+</ul>
+
+<h2>3. Qué pasa si entras con tu cuenta de Google</h2>
+<p>Entrar es voluntario y sirve para dos cosas: conservar tu progreso si cambias de móvil, y
+vincular la suscripción Premium a tu cuenta. Al entrar tratamos:</p>
+
+<table>
+  <tr><th>Dato</th><th>De dónde sale</th><th>Para qué</th></tr>
+  <tr><td>Identificador de usuario (UID)</td><td>Firebase Authentication</td><td>Saber de quién es cada dato y aislarlo del resto</td></tr>
+  <tr><td>Correo electrónico y nombre de tu cuenta de Google</td><td>El diálogo de Google al entrar</td><td>Mostrarte con qué cuenta estás dentro y darte soporte</td></tr>
+  <tr><td>Sesiones de estudio: modo, preguntas, respuesta marcada, aciertos, nota, inicio y fin</td><td>Tu propia práctica</td><td>Sincronizar tu progreso entre dispositivos y calcular tu nivel por tema</td></tr>
+  <tr><td>Ejercicios de ortografía y gramática: errores, omisiones, excesos y fecha</td><td>Tu propia práctica</td><td>Lo mismo</td></tr>
+  <tr><td>Estado de tu suscripción: nivel, si está activa, producto, fecha de vencimiento</td><td>RevenueCat y la tienda</td><td>Darte acceso a Premium en todos tus dispositivos</td></tr>
+</table>
+
+<p>Todo eso vive en Cloud Firestore, bajo la ruta <code>usuarios/{tu&nbsp;UID}</code>, y las reglas del
+servidor impiden que otro usuario lo lea o lo escriba.</p>
+<p><strong>No recogemos</strong> tu ubicación, tu agenda de contactos, tus fotos, tu micrófono, tu
+cámara ni tu lista de aplicaciones. La app no pide ninguno de esos permisos.</p>
+
+<h2>4. Suscripción y pagos</h2>
+<p>Premium se contrata dentro de la app y lo cobra <strong>Google Play</strong> o <strong>App Store</strong>,
+nunca OposiPro. La pasarela es suya.</p>
+<ul>
+  <li><strong>No recibimos ni almacenamos datos de pago</strong>: ni número de tarjeta, ni titular, ni
+      dirección de facturación. No pasan por nuestros sistemas en ningún momento.</li>
+  <li>Usamos <strong>RevenueCat</strong> para validar la compra contra la tienda. A RevenueCat le llega tu
+      identificador de usuario de Firebase y los datos técnicos que la tienda devuelve sobre la
+      suscripción (producto, fechas, si sigue activa, si es un entorno de pruebas).</li>
+  <li>Cuando tu suscripción cambia de estado, RevenueCat avisa a nuestro servidor, que anota en tu
+      espacio privado si eres Premium y hasta cuándo, más un registro técnico del aviso para no
+      procesarlo dos veces.</li>
+</ul>
+
+<h2>5. Estadísticas de uso</h2>
+<p>Usamos Firebase Analytics para entender cómo se usa la app: cuántas personas abren la pantalla
+de Premium, cuántas empiezan una compra, cuántas la completan o la cancelan, y cuántas restauran
+una compra anterior. Sirve para decidir qué mejorar y para detectar que algo se ha roto.</p>
+<ul>
+  <li>Esos eventos se asocian a un <strong>identificador de instalación</strong> que genera el propio
+      móvil, no a tu correo ni a tu nombre.</li>
+  <li>Junto a ellos, Firebase recoge automáticamente datos técnicos: modelo de dispositivo, versión
+      del sistema, versión de la app, idioma y país aproximado deducido de la conexión.</li>
+  <li><strong>No usamos publicidad</strong>, no hay identificadores publicitarios, no hay redes de
+      terceros y no compartimos nada de esto con anunciantes.</li>
+</ul>
+<p>Si prefieres que la app no envíe estas estadísticas, escríbenos a
+<a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a> y lo desactivamos para tu instalación.</p>
+
+<h2>6. Con quién se comparten</h2>
+<p>No vendemos, alquilamos ni cedemos tus datos. Solo intervienen los proveedores necesarios para
+que la app funcione, y actúan como encargados del tratamiento:</p>
+<ul>
+  <li><strong>Google Ireland Limited / Google LLC</strong> — Firebase Authentication, Cloud Firestore,
+      Cloud Functions, Remote Config y Analytics, y la facturación de Google Play.</li>
+  <li><strong>RevenueCat, Inc.</strong> — validación y estado de las suscripciones.</li>
+  <li><strong>Apple Distribution International</strong> — facturación en App Store, si instalaste desde ahí.</li>
+</ul>
+<p>Algunos de estos proveedores están en Estados Unidos. Las transferencias se amparan en las
+cláusulas contractuales tipo aprobadas por la Comisión Europea y, cuando aplica, en el Marco de
+Privacidad de Datos UE-EE. UU. Los datos de Firestore de esta app se alojan en la región europea.</p>
+<p>También podríamos comunicar datos si nos lo exige una obligación legal o una autoridad competente.</p>
+
+<h2>7. Con qué base legal</h2>
+<ul>
+  <li><strong>Ejecución del contrato</strong> (art. 6.1.b RGPD): tu cuenta, la sincronización de tu
+      progreso y la gestión de la suscripción. Sin eso, el servicio que contratas no se puede prestar.</li>
+  <li><strong>Interés legítimo</strong> (art. 6.1.f RGPD): las estadísticas de uso agregadas y la
+      seguridad del servicio. Puedes oponerte según el apartado 5.</li>
+  <li><strong>Obligación legal</strong> (art. 6.1.c RGPD): conservar lo que exija la normativa fiscal o
+      de consumo respecto de las transacciones, que en nuestro caso gestionan las tiendas.</li>
+</ul>
+
+<h2>8. Cuánto tiempo se conservan</h2>
+<ul>
+  <li>Tu progreso, mientras mantengas la cuenta. Se borra cuando tú lo borres.</li>
+  <li>El estado de la suscripción, mientras esté vigente y el tiempo necesario para atender
+      reclamaciones o devoluciones.</li>
+  <li>Las estadísticas de uso, según los plazos de retención de Firebase Analytics, que no superan
+      los 14 meses.</li>
+  <li>El progreso guardado solo en tu móvil desaparece al desinstalar la app o al pulsar
+      «Borrar progreso».</li>
+</ul>
+
+<h2>9. Cómo borrar tus datos y tu cuenta</h2>
+<p>Hay dos caminos y los dos están a tu alcance:</p>
+<h3>Desde la app</h3>
+<p>Entra en <strong>Cuenta › Tus datos › Borrar progreso</strong>. Borra tus tests, resultados, racha y
+ejercicios, en el dispositivo y también en la nube si has entrado con tu cuenta. No se puede deshacer.</p>
+<h3>Borrar la cuenta entera</h3>
+<p>Escríbenos a <a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a> desde la dirección de la cuenta de Google con
+la que entras, pidiendo la supresión. Eliminaremos tu identificador de usuario y todos los datos
+asociados <strong>en un plazo máximo de 30 días</strong>, y te lo confirmaremos por correo.</p>
+<p>El estado de tu suscripción se conserva mientras la suscripción siga viva: cancélala primero en
+Google Play o App Store, porque borrar la cuenta en OposiPro <strong>no cancela el cobro</strong> de la
+tienda.</p>
+
+<h2>10. Tus derechos</h2>
+<p>Puedes ejercer los derechos de acceso, rectificación, supresión, limitación, portabilidad y
+oposición escribiendo a <a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a>. Responderemos en el plazo de un mes.</p>
+<p>Si crees que no hemos atendido bien tu solicitud, puedes reclamar ante la Agencia Española de
+Protección de Datos, <a href="https://www.aepd.es">www.aepd.es</a>.</p>
+
+<h2>11. Menores</h2>
+<p>OposiPro prepara una oposición cuyo acceso exige ser mayor de edad. La app no está dirigida a
+menores de 16 años y no recogemos datos de menores a sabiendas. Si detectamos una cuenta de un
+menor, la eliminaremos.</p>
+
+<h2>12. Seguridad</h2>
+<p>El acceso a tus datos va cifrado en tránsito y en reposo por la infraestructura de Google Cloud.
+Las reglas de Firestore restringen cada documento a su dueño, y el aviso que actualiza tu
+suscripción viaja autenticado con un secreto compartido.</p>
+<p>Ningún sistema es infalible: si se produjera una brecha que afecte a tus datos, lo notificaremos
+según exige el artículo 33 del RGPD.</p>
+
+<h2>13. Cambios en esta política</h2>
+<p>Si cambia lo que recogemos o para qué, actualizaremos esta página y su fecha. Los cambios
+relevantes se avisarán dentro de la app antes de aplicarse.</p>
+
+<footer>
+  OposiPro · <a href="terminos.html">Condiciones de uso</a> ·
+  <a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a>
+</footer>
+
+</main>
+</body>
+</html>
