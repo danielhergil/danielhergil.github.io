@@ -38,10 +38,11 @@
 <p class="meta">Última actualización: 6 de octubre de 2026</p>
 
 <div class="resumen">
-  <p><strong>En corto.</strong> OposiPro funciona entera sin cuenta y sin conexión. Si no entras
-  con Google, lo que estudias se queda en tu móvil.</p>
-  <p>Si entras con Google, guardamos tu progreso en tu espacio privado de la nube para que lo
-  tengas en otros dispositivos.</p>
+  <p><strong>En corto.</strong> Para usar OposiPro entras con Google, Apple o tu correo. Guardamos
+  tu progreso en tu espacio privado de la nube para que lo tengas en otros dispositivos, y se
+  puede estudiar sin conexión.</p>
+  <p>Si te unes a una academia con su código, la academia sabe que ocupas una de sus plazas, pero
+  no ve tu progreso.</p>
   <p><strong>Nunca vemos tu tarjeta.</strong> El cobro lo hacen Google Play o App Store; a nosotros
   solo nos llega si tu suscripción está activa.</p>
   <p>No vendemos tus datos a nadie, ni los usamos para publicidad.</p>
@@ -53,34 +54,41 @@ aplicación OposiPro (<code>org.danihg.oposipro</code>).</p>
 <p>Para cualquier asunto relacionado con tus datos, incluida la baja o el borrado:
 <a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a>.</p>
 
-<h2>2. Qué pasa si usas la app sin cuenta</h2>
-<p>OposiPro no obliga a registrarse. Puedes instalarla y usarla sin dar ningún dato.</p>
+<h2>2. Para usar la app necesitas una cuenta</h2>
+<p>Entras con <strong>Google</strong>, con <strong>Apple</strong> (en iPhone) o con <strong>correo y
+contraseña</strong>. La cuenta sirve para conservar tu progreso si cambias de móvil y para vincular
+a ti Premium o la licencia de tu academia.</p>
 <ul>
-  <li>Tus tests, resultados, racha, fallos y ejercicios de ortografía y gramática se guardan
-      <strong>solo en la base de datos local de tu dispositivo</strong>. No salen de él.</li>
+  <li>Tus tests, resultados, racha, fallos y ejercicios se guardan en la base de datos local de tu
+      dispositivo y se sincronizan con tu cuenta para que no los pierdas.</li>
   <li>La app descarga de nuestros servidores los <strong>parámetros de la convocatoria y los
       límites del plan gratuito</strong> (Firebase Remote Config). Para eso envía un identificador
       técnico de la instalación, no tu identidad.</li>
   <li>La app envía <strong>estadísticas de uso anónimas</strong> (Firebase Analytics). Se explica en
       el apartado 5.</li>
-  <li>Si desinstalas la app, ese progreso local se pierde y no hay copia en ninguna parte.</li>
 </ul>
 
-<h2>3. Qué pasa si entras con tu cuenta de Google</h2>
-<p>Entrar es voluntario y sirve para dos cosas: conservar tu progreso si cambias de móvil, y
-vincular la suscripción Premium a tu cuenta. Al entrar tratamos:</p>
+<h2>3. Qué datos tratamos</h2>
 
 <table>
   <tr><th>Dato</th><th>De dónde sale</th><th>Para qué</th></tr>
   <tr><td>Identificador de usuario (UID)</td><td>Firebase Authentication</td><td>Saber de quién es cada dato y aislarlo del resto</td></tr>
-  <tr><td>Correo electrónico y nombre de tu cuenta de Google</td><td>El diálogo de Google al entrar</td><td>Mostrarte con qué cuenta estás dentro y darte soporte</td></tr>
+  <tr><td>Correo electrónico y, con Google o Apple, tu nombre</td><td>El acceso que elijas al entrar</td><td>Mostrarte con qué cuenta estás dentro, recuperar la contraseña y darte soporte</td></tr>
   <tr><td>Sesiones de estudio: modo, preguntas, respuesta marcada, aciertos, nota, inicio y fin</td><td>Tu propia práctica</td><td>Sincronizar tu progreso entre dispositivos y calcular tu nivel por tema</td></tr>
   <tr><td>Ejercicios de ortografía y gramática: errores, omisiones, excesos y fecha</td><td>Tu propia práctica</td><td>Lo mismo</td></tr>
+  <tr><td>Mes de tu examen</td><td>Lo eliges al empezar</td><td>La cuenta atrás de la pantalla de inicio. Se guarda solo en tu dispositivo</td></tr>
   <tr><td>Estado de tu suscripción: nivel, si está activa, producto, fecha de vencimiento</td><td>RevenueCat y la tienda</td><td>Darte acceso a Premium en todos tus dispositivos</td></tr>
+  <tr><td>Licencia de academia: qué academia, fecha de alta y tu correo</td><td>El código de academia que canjeas</td><td>Darte Premium mientras tu academia mantenga tu plaza, y que tu academia sepa quién ocupa sus plazas</td></tr>
 </table>
 
-<p>Todo eso vive en Cloud Firestore, bajo la ruta <code>usuarios/{tu&nbsp;UID}</code>, y las reglas del
-servidor impiden que otro usuario lo lea o lo escriba.</p>
+<p>Todo eso vive en Cloud Firestore, bajo la ruta <code>usuarios/{tu&nbsp;UID}</code> salvo la licencia
+de academia, que se anota también en la academia. Las reglas del servidor impiden que otro
+usuario lo lea o lo escriba.</p>
+<p><strong>Si nos escribes desde el formulario de contacto de la web</strong> (opsipro.es/academias),
+tratamos tu nombre, tu correo, la academia si la indicas y tu mensaje, solo para contestarte. Se
+guardan en Cloud Firestore (región europea), fuera del alcance de cualquier otro usuario, y nos
+llega un aviso por correo. Para evitar abusos se anota durante un día una huella cifrada de tu
+dirección IP, que no permite recuperarla.</p>
 <p><strong>No recogemos</strong> tu ubicación, tu agenda de contactos, tus fotos, tu micrófono, tu
 cámara ni tu lista de aplicaciones. La app no pide ninguno de esos permisos.</p>
 
@@ -113,16 +121,12 @@ una compra anterior. Sirve para decidir qué mejorar y para detectar que algo se
 <p>Si prefieres que la app no envíe estas estadísticas, escríbenos a
 <a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a> y lo desactivamos para tu instalación.</p>
 
-<h2>5 bis. Si nos escribes desde la web</h2>
-<p>Si usas el formulario de contacto de opsipro.es (por ejemplo, desde la página para academias),
-tratamos tu nombre, tu correo, la academia si la indicas y tu mensaje, solo para contestarte. Se
-guardan en Cloud Firestore (región europea), fuera del alcance de cualquier otro usuario, y nos
-llega un aviso por correo. Para evitar abusos se anota durante un día una huella cifrada de tu
-dirección IP, que no permite recuperarla.</p>
-
 <h2>6. Con quién se comparten</h2>
-<p>No vendemos, alquilamos ni cedemos tus datos. Solo intervienen los proveedores necesarios para
-que la app funcione, y actúan como encargados del tratamiento:</p>
+<p>No vendemos, alquilamos ni cedemos tus datos. <strong>Tu academia</strong>, si canjeas su código,
+sabe que tu correo ocupa una de sus plazas y desde cuándo; <strong>no ve tu progreso</strong>. Si algún
+día pudiera verlo, te lo preguntaríamos antes, y podrías decir que no.</p>
+<p>Además solo intervienen los proveedores necesarios para que la app funcione, que actúan como
+encargados del tratamiento:</p>
 <ul>
   <li><strong>Google Ireland Limited / Google LLC</strong> — Firebase Authentication, Cloud Firestore,
       Cloud Functions, Remote Config y Analytics, y la facturación de Google Play.</li>
@@ -159,15 +163,21 @@ Privacidad de Datos UE-EE. UU. Los datos de Firestore de esta app se alojan en l
       «Borrar progreso».</li>
 </ul>
 
-<h2>9. Cómo borrar tus datos y tu cuenta</h2>
+<h2 id="borrar-cuenta">9. Cómo borrar tus datos y tu cuenta</h2>
 <p>Hay dos caminos y los dos están a tu alcance:</p>
 <h3>Desde la app</h3>
-<p>Entra en <strong>Cuenta › Tus datos › Borrar progreso</strong>. Borra tus tests, resultados, racha y
-ejercicios, en el dispositivo y también en la nube si has entrado con tu cuenta. No se puede deshacer.</p>
-<h3>Borrar la cuenta entera</h3>
-<p>Escríbenos a <a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a> desde la dirección de la cuenta de Google con
-la que entras, pidiendo la supresión. Eliminaremos tu identificador de usuario y todos los datos
-asociados <strong>en un plazo máximo de 30 días</strong>, y te lo confirmaremos por correo.</p>
+<p>En <strong>Ajustes › Tus datos</strong> hay dos botones:</p>
+<ul>
+  <li><strong>Borrar progreso</strong>: tus tests, resultados, racha y ejercicios, en el dispositivo y en la
+      nube. La cuenta sigue.</li>
+  <li><strong>Borrar cuenta</strong>: el progreso, el estado de tu suscripción, tu licencia de academia (su
+      plaza queda libre) y tu identidad. Te pediremos que te identifiques otra vez antes.</li>
+</ul>
+<p>Ninguno de los dos se puede deshacer.</p>
+<h3>Sin la app</h3>
+<p>Escríbenos a <a href="mailto:oposipro.soporte@gmail.com">oposipro.soporte@gmail.com</a> desde la dirección de tu cuenta,
+pidiendo la supresión. Eliminaremos tu identificador de usuario y todos los datos asociados
+<strong>en un plazo máximo de 30 días</strong>, y te lo confirmaremos por correo.</p>
 <p>El estado de tu suscripción se conserva mientras la suscripción siga viva: cancélala primero en
 Google Play o App Store, porque borrar la cuenta en OposiPro <strong>no cancela el cobro</strong> de la
 tienda.</p>
